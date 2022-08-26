@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+{% block content%}
+<table align="center" border="1px">
+<form action="" method="post">
+    {% csrf_token%}
+    <tr><td>Start_Date</td><td><input type="date" name="start_dt" /></td></tr>
+    <tr><td>Trainer</td><td><input type="text" name="trainer" /></td></tr>
+    <tr><td>Batch_Name</td><td><input type="bname" name="bname" /></td></tr>
+    <tr><td colspan="2" align="center"><input type="submit" value="search batch" /></td></tr>
+</form>
+</table>
+{% endblock%}

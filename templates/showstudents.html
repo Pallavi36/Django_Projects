@@ -1,0 +1,50 @@
+{% extends 'base.html'%}
+{% block content%}
+<h1 align="center">Students Details</h1>
+<table align="center" border="1px">
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>Email</th>
+        <th>ADDRESS</th>
+        <th>MOBILE</th>
+        <th>COURSE</th>
+        <th>ENQUIRY DATE</th>
+        <th>REMARKS</th>
+    </tr>
+    {% for i in st%}
+    <tr>
+        <form action="updatestudent" method="post">
+            {% csrf_token%}
+        <td>{{i.user.id}}<input type="hidden" name="uid" value="{{i.user.id}}" /></td>
+        <td>{{i.name}} {{i.user.last_name}}</td>
+        <td>{{i.user.email}}</td>
+        <td><input type="text" name="address" value="{{i.address}}" /></td>
+        <td><input type="text" name="mob" value="{{i.mob}}" /></td>
+        <td><select name="course">
+            <option>{{i.course}}</option>
+            <option>Java Fullstack</option>
+            <option>Python Fullstack</option>
+            <option>Mean</option>
+            <option>Mern</option>
+            <option>Java Core&adv</option>
+            <option>Spring&hibernate</option>
+            <option>Python Core&adv</option>
+            <option>Django&Rest</option>
+            <option>Blockchain</option>
+            <option>Oracle</option>
+            <option>WebDesigning</option>
+            <option>React</option>
+            <option>Angular</option>
+            <option>Data Science</option>
+            <option>DSA</option>
+            <option>C&C++</option>
+        </select></td>
+        <td>{{i.edt}}</td>
+        <td><textarea name="remarks" rows="5" cols="15">{{i.remarks}}</textarea></td>
+        <td><input type="submit" value="Update" /></td>
+    </form>
+    </tr>
+    {% endfor%}
+</table>
+{% endblock%}

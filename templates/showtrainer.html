@@ -1,0 +1,37 @@
+{% extends 'base.html'%}
+{% block content%}
+<h1 align="center">Show Trainer</h1>
+<table align="center" border="1px">
+    <th>ID</th>
+    <th>Trainer_Name</th>
+    <th>Languages</th>
+    <th>Salary</th>
+    <th>Joined_Date</th>
+    <th>Timings</th>
+    
+   
+   
+{% for i in tr%}
+<tr>
+    <form action="updatetrainer" method="post">
+        {% csrf_token%}
+    <td>{{i.id}}<input type="hidden" name="id" value="{{i.id}}" /> </td>
+    <td><input type="text" name="tname" value="{{i.tname}}" /></td>
+    <td><input type="text" name="languages" value="{{i.languages}}" /></td>
+    <td><input type="number" name="sal" value="{{i.sal}}" /></td>
+    <td><input type="date" name="joined_dt" value="{{i.joined_dt}}" /></td>
+    <td><input type="text" name="timings" value="{{i.timings}}" /></td>
+    <td><input type="submit" value="update">
+    </form>
+   
+</tr>
+{% endfor%}
+</table>
+{% for message in messages%}
+<script>
+    {% if message.tags%}
+    window.alert('{{message}}')
+     {% endif %}
+</script>
+{% endfor%}
+{% endblock%}

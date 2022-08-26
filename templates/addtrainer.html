@@ -1,0 +1,16 @@
+{% extends 'base.html'%}
+{% block content%}
+<table align="center" border="1px">
+<form action="" method="post">
+    {% csrf_token%}
+    <tr>
+    
+    <tr><td>Trainer</td><td><input type="text" name="tname" /></td></tr>
+    <tr><td>Languages</td><td><input type="text" name="languages" /></td></tr>
+    <tr><td>Salary</td><td><input type="number" name="sal" /></td></tr>
+    <tr><td>Joined_Date</td><td><input type="date" name="joined_dt" /></td></tr>
+    <tr><td>Timings</td><td><input type="text" name="timings" /></td></tr>
+    <tr><td colspan="2" align="center"><input type="submit" value="add trainer" /></td></tr>
+</form>
+</table>
+{% endblock%}

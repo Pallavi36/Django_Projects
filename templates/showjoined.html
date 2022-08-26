@@ -1,0 +1,41 @@
+{% extends 'base.html'%}
+{% block content%}
+<h1 align="center">Show Joined</h1>
+<table align="center" border="1px">
+    <th>ID</th>
+    <th>Student</th>
+    <th>Joined_Date</th>
+    <th>Total</th>
+    <th>First_Install</th>
+    <th>First_Date</th>
+    <th>Last_Install</th>
+    <th>Last_Date</th>
+    <th>Duration</th>
+    <th>Dues</th>
+{% for i in jn%}
+<tr>
+    <form action="updatejoined" method="post">
+        {% csrf_token%}
+    <td>{{i.id}}<input type="hidden" name="uid" value="{{i.id}}" /></td>  
+    <td>{{i.student.name}}</td>
+    <td>{{i.joined_dt}}</td>
+    <td>{{i.total}}</td>
+    <td>{{i.first_ins}}</td>
+    <td>{{i.first_dt}}</td>
+    <td><input type="number" name="last_ins" value="{{i.last_ins}}" /</td>
+    <td><input value="{{i}}" type="date" name="last_dt"  /></td>
+    <td>{{i.duration}}</td>
+    <td><input type="number" name="dues" value="{{i.dues}}" /></td>
+    <td><input type="submit" value="update">
+    </form>
+</tr>
+{% endfor%}
+</table>
+{% for message in messages%}
+<script>
+    {% if message.tags%}
+    window.alert('{{message}}')
+     {% endif %}
+</script>
+{% endfor%}
+{% endblock%}

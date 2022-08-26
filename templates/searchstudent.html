@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block content%}
+<table align="center" border="1px">
+<form action="" method="post">
+    {% csrf_token%}
+    <tr>
+    <td>NAME</td><td><input type="text" name="name" /></td><br></tr>
+   <tr> <td>MOBILE</td><td><input type="number" name="mob" /></td><br></tr>
+   <tr> <td>COURSE</td><td><select name="course">
+            <option></option>
+            <option>Java Fullstack</option>
+            <option>Python Fullstack</option>
+            <option>Mean</option>
+            <option>Mern</option>
+            <option>Java Core&adv</option>
+            <option>Spring&hibernate</option>
+            <option>Python Core&adv</option>
+            <option>Django&Rest</option>
+            <option>Blockchain</option>
+            <option>Oracle</option>
+            <option>WebDesigning</option>
+            <option>React</option>
+            <option>Angular</option>
+            <option>Data Science</option>
+            <option>DSA</option>
+            <option>C&C++</option>
+        </select></td></tr>
+        <tr><td>From Date</td><td><input type="date" name="fdt" /></td></tr>
+        <tr><td>To Date</td><td><input type="date" name="tdt" /></td><br></tr>
+        <tr><td colspan="2" align="center"><input type="submit" value="search" /></td></tr>
+    </form>
+</table>
+{% endblock%}

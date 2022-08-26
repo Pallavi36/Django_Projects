@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% block content%}
+<table align="center" border="1px">
+<form action="" method="post">
+    {% csrf_token%}
+    
+    <tr><td>Joined_Date</td><td><input type="date" name="joined_dt" /></td></tr>
+    <tr><td>Total</td><td><input type="number" name="total" /></td></tr>
+    <tr><td>First_Install</td><td><input type="number" name="first_ins" /></td></tr>
+    <tr><td>First_Date</td><td><input type="date" name="first_dt" /></td></tr>
+    <tr><td>Last_Install</td><td><input type="number" name="last_ins" /></td></tr>
+    <tr><td>Last_Date</td><td><input type="date" name="last_dt" /></td></tr>
+    <tr><td>Duration</td><td><input type="text" name="duration" /></td></tr>
+    <tr><td>Dues</td><td><select name="dues"><br>
+                          <option value="">--------</option>
+                          <option>Remaining_Dues</option>
+                          <option>No_Dues</option>
+    </td></tr>
+    <tr><td colspan="2" align="center"><input type="submit" value="search joined student" /></td></tr>
+</form>
+</table>
+{% endblock%}

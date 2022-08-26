@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% block content%}
+<h1 align="center">Show Batch</h1>
+<table align="center" border="1px">
+    <th>ID</th>
+    <th>Joined_Date</th>
+    <th>Start_Date</th>
+    <th>Trainer</th>
+    <th>Batch_Name</th>
+    
+    
+   
+   
+{% for i in ba%}
+<tr>
+    <form action="updatebatch" method="post">
+        {% csrf_token%}
+    <td>{{i.id}}<input type="hidden" name="id" value="{{i.id}}" /> </td>
+    <td>
+       <select name="student" multiple>
+        {% for j in jn%}
+        {% if j in i.students.all%}
+        <option value="{{j.id}}" selected>{{j.joined_dt}}</option>
+        {%else%}
+        <option value="{{j.id}}">{{j.joined_dt}}</option>
+        {% endif%}
+        {% endfor%}
+       </select>
+    </td>
+    <td><input value="{{i}}" type="date" name="start_dt"  /></td>
+    <td><input type="text" name="trainer" value="{{i.trainer}}" /></td>
+    <td><input type="text" name="bname" value="{{i.bname}}" /></td>
+    
+    <td><input type="submit" value="update">
+    </form>
+   
+</tr>
+{% endfor%}
+</table>
+{% for message in messages%}
+<script>
+    {% if message.tags%}
+    window.alert('{{message}}')
+     {% endif %}
+</script>
+{% endfor%}
+{% endblock%}
